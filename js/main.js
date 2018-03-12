@@ -1,3 +1,5 @@
+
+
 var usuarios=[];
 function pinta(){
 
@@ -21,8 +23,15 @@ function pinta(){
 
 		$("#nombre").closest(".form-horizontal").find("input[type=text],input[type=tel]").val("");
 
+	};
 
 
-	}
 
+	$("#myButton3").click(function() {
+		var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+		$.getJSON(flickerAPI,usuarios,success);
+	});
 
+function success(usuarios){
+	alert("The connection was successful");
+}
