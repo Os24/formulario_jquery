@@ -9,7 +9,8 @@ function pinta(){
 	let telefono=$("#telefono").val();
 	console.log(telefono);
 	
-	usuarios.push(nombre,direccion,telefono);
+	usuarios.push({nombre,direccion,telefono});//mediante este metodo, le pase los objetos a insertar
+												//en el arreglo, con los corchetes asumo que cada insert es un nuevo objeto
 		$("#mytable-body").append(//le paso un identificador html mediante jquery para poer manipular ese div 
 		//en espeifico 
 		"<tr>"+ 
@@ -17,14 +18,11 @@ function pinta(){
 		"</tr>"
 
 		);
-	
+
+		$("#nombre").closest(".form-horizontal").find("input[type=text],input[type=tel]").val("");
 
 
 
-	$("#nombre").closest(".form-horizontal").find("input[type=text],input[type=tel]").val("");
-
-	
-
-}
+	}
 
 
