@@ -21,17 +21,21 @@ function pinta(){
 
 		);
 
-		$("#nombre").closest(".form-horizontal").find("input[type=text],input[type=tel]").val("");
+		$("#nombre").closest(".form-horizontal").find('input[type="text"],input[type="tel"]').val("");
 
 	};
 
 
-
-	$("#myButton3").click(function() {
-		var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-		$.getJSON(flickerAPI,usuarios,success);
-	});
-
-function success(usuarios){
-	alert("The connection was successful");
+var getServer=function(){
+	$.ajax({
+		url:"https://geekshubs-b97d3.firebaseio.com/users.json",
+		type:"GET",
+		success:function(response){
+			console.log(response,'resServidor');
+				},
+		error:function(response){
+			console.log(response,'errorServidor');
+	}
+});
 }
+
