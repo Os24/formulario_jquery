@@ -8,8 +8,8 @@ function pinta(){
 
 	let nombre=$("#nombre").val();//declaro variables que solo se van a generar cuando se invoque la funcion 
 	//y que guarde los datos del usuario mediante el metodo .val()
-	if ( !isNaN(nombre)) {
-		console.log('el primer campo solo recibe letras');
+	if ( !isNaN(nombre)||nombre=="") {
+		alert('el primer campo solo recibe letras');
 		return false;
 	}else
 		myTABLE;
@@ -19,6 +19,11 @@ function pinta(){
 	
 
 	let telefono=$("#telefono").val();
+	if ( isNaN(telefono)||telefono=="") {
+		alert('el campo solo recibe numeros');
+		return false;
+	}else
+		myTABLE;
 	
 	
 	
@@ -37,7 +42,7 @@ function pinta(){
 	};
 
 
-	/*var getServer=function(){
+	var getServer=function(){
 		$.ajax({
 			url:"https://geekshubs-b97d3.firebaseio.com/users.json",
 			type:"GET",
@@ -48,7 +53,7 @@ function pinta(){
 					var correoJson=(response[cachaObjetos].correo);
 
 						$("#mytable-body").append(//le paso un identificador html mediante jquery para poer manipular ese div 
-		//en espeifico 
+		//en especifico 
 		"<tr>"+ 
 		"<td >"+nombreJson+"</td>"+"<td>"+correoJson+"</td>"+"<td>"+edadJson+"</td>"+ 
 		"</tr>"
@@ -63,7 +68,7 @@ function pinta(){
 				console.log(response,'errorServidor');
 			}
 		});
-	}*/
+	}
 
 
 
