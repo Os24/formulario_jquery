@@ -8,15 +8,15 @@ function pinta(){
 
 	let nombre=$("#nombre").val();//declaro variables que solo se van a generar cuando se invoque la funcion 
 	//y que guarde los datos del usuario mediante el metodo .val()
-	if (nombre == "" ) {
-		console.log('el primer campo esta vacio');
+	if ( !isNaN(nombre)) {
+		console.log('el primer campo solo recibe letras');
 		return false;
 	}else
-		return true;
+		myTABLE;
 	
 
 	let direccion=$("#direccion").val();
-	console.log(direccion);
+	
 
 	let telefono=$("#telefono").val();
 	
@@ -24,7 +24,7 @@ function pinta(){
 	
 	usuarios.push({nombre,direccion,telefono});//mediante este metodo, le pase los objetos a insertar
 												//en el arreglo, con los corchetes asumo que cada insert es un nuevo objeto
-		$("#mytable-body").append(//le paso un identificador html mediante jquery para poer manipular ese div 
+		var myTABLE= $("#mytable-body").append(//le paso un identificador html mediante jquery para poer manipular ese div 
 		//en espeifico 
 		"<tr>"+ 
 		"<td >"+nombre+"</td>"+"<td>"+direccion+"</td>"+"<td>"+telefono+"</td>"+ 
@@ -37,18 +37,33 @@ function pinta(){
 	};
 
 
-	var getServer=function(){
+	/*var getServer=function(){
 		$.ajax({
 			url:"https://geekshubs-b97d3.firebaseio.com/users.json",
 			type:"GET",
 			success:function(response){
-				console.log(response,'resServidor');
+				for(var cachaObjetos in response){
+					var nombreJson=(response[cachaObjetos].nombre);
+					var edadJson=(response[cachaObjetos].edad);
+					var correoJson=(response[cachaObjetos].correo);
+
+						$("#mytable-body").append(//le paso un identificador html mediante jquery para poer manipular ese div 
+		//en espeifico 
+		"<tr>"+ 
+		"<td >"+nombreJson+"</td>"+"<td>"+correoJson+"</td>"+"<td>"+edadJson+"</td>"+ 
+		"</tr>"
+
+		);
+
+
+				}
+				
 			},
 			error:function(response){
 				console.log(response,'errorServidor');
 			}
 		});
-	}
+	}*/
 
 
 
